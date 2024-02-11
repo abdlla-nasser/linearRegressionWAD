@@ -1,3 +1,4 @@
+//
 function linearRegression(xValues = [], yValues = []){
   // xValues array of x values
   // yValues array of y values
@@ -8,6 +9,7 @@ function linearRegression(xValues = [], yValues = []){
   // to get m which is the slope we use formula 
   // m = sum of each value of x - xMean * each corresponding value of y - yMean / sum of powers of 2 of each value of x - xMean
   let slope = 0, slopeNumerator = 0, slopeDenominator = 0;
+  // iterating over the array to get the slope ( (slope numerator) sum of (xValues[i] - xMean) * (yValues[i] - yMean) / (slope denominator)sum of (xValues[i] - xMean)^2 )
   for(let i = 0; i < xValues.length; i++){
     slopeNumerator = slopeNumerator + (xValues[i] - xMean) * (yValues[i] - yMean)
     slopeDenominator = slopeDenominator + Math.pow((xValues[i] - xMean), 2)
@@ -24,7 +26,6 @@ function linearRegression(xValues = [], yValues = []){
     yExpected.push(y)
   }
   regressor["yExpected"] = yExpected
-  // use the averages to compute the slope m
   console.log(regressor.yExpected)
   console.log(`regression equation is ${regressor.slope} x + ${regressor.intercept}`)
   return regressor
